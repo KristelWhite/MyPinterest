@@ -22,6 +22,9 @@
 		63818D762AFA77320022CE7A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63818D742AFA77320022CE7A /* LoginViewController.xib */; };
 		63818D7A2AFA77980022CE7A /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818D792AFA77980022CE7A /* TabBarModel.swift */; };
 		63818D7C2AFA84D50022CE7A /* TabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818D7B2AFA84D50022CE7A /* TabBarConfigurator.swift */; };
+		63818D7E2B14DB680022CE7A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818D7D2B14DB680022CE7A /* HomeModel.swift */; };
+		63818D822B14E86E0022CE7A /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818D802B14E86E0022CE7A /* HomeCollectionViewCell.swift */; };
+		63818D832B14E86E0022CE7A /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63818D812B14E86E0022CE7A /* HomeCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		63818D742AFA77320022CE7A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		63818D792AFA77980022CE7A /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		63818D7B2AFA84D50022CE7A /* TabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigurator.swift; sourceTree = "<group>"; };
+		63818D7D2B14DB680022CE7A /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		63818D802B14E86E0022CE7A /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		63818D812B14E86E0022CE7A /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +110,10 @@
 		63818D5F2AFA76370022CE7A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				63818D7F2B14E82D0022CE7A /* Cells */,
 				63818D6F2AFA77200022CE7A /* HomeViewController.swift */,
 				63818D702AFA77200022CE7A /* HomeViewController.xib */,
+				63818D7D2B14DB680022CE7A /* HomeModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -156,6 +164,15 @@
 				63818D7B2AFA84D50022CE7A /* TabBarConfigurator.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		63818D7F2B14E82D0022CE7A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				63818D802B14E86E0022CE7A /* HomeCollectionViewCell.swift */,
+				63818D812B14E86E0022CE7A /* HomeCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +236,7 @@
 				63818D762AFA77320022CE7A /* LoginViewController.xib in Resources */,
 				63818D6E2AFA77110022CE7A /* ProfileViewController.xib in Resources */,
 				63818D562AFA742A0022CE7A /* LaunchScreen.storyboard in Resources */,
+				63818D832B14E86E0022CE7A /* HomeCollectionViewCell.xib in Resources */,
 				63818D532AFA742A0022CE7A /* Assets.xcassets in Resources */,
 				63818D662AFA76DD0022CE7A /* SearchViewController.xib in Resources */,
 				63818D6A2AFA76F80022CE7A /* FavoriteViewController.xib in Resources */,
@@ -235,8 +253,10 @@
 			files = (
 				63818D6D2AFA77110022CE7A /* ProfileViewController.swift in Sources */,
 				63818D4A2AFA74270022CE7A /* AppDelegate.swift in Sources */,
+				63818D7E2B14DB680022CE7A /* HomeModel.swift in Sources */,
 				63818D7A2AFA77980022CE7A /* TabBarModel.swift in Sources */,
 				63818D652AFA76DD0022CE7A /* SearchViewController.swift in Sources */,
+				63818D822B14E86E0022CE7A /* HomeCollectionViewCell.swift in Sources */,
 				63818D7C2AFA84D50022CE7A /* TabBarConfigurator.swift in Sources */,
 				63818D752AFA77320022CE7A /* LoginViewController.swift in Sources */,
 				63818D712AFA77200022CE7A /* HomeViewController.swift in Sources */,
