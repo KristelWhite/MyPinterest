@@ -12,7 +12,7 @@ enum TabBarModel {
     case profile
     case favorite
     
-    var label: String{
+    var label: String {
         switch self {
         case .home:
             return "Главная"

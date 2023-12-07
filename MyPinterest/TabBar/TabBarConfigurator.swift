@@ -10,6 +10,7 @@ import UIKit
 class TabBarConfigurator {
     //MARK: - private property
     private let allTab: [TabBarModel] = [.home, .favorite, .profile]
+    
     //MARK: - Internal func
     func configure() -> UITabBarController {
         return getTabBarController()
@@ -30,10 +31,10 @@ private extension TabBarConfigurator {
         var viewControllers: [UIViewController] = []
         
         allTab.forEach { tab in
-            let controller = getCurrentViewController(tab: tab)
+            let navigationController = UINavigationController(rootViewController: getCurrentViewController(tab: tab))
             let tabBarItem = UITabBarItem(title: tab.label, image: tab.image, selectedImage: tab.selectedImage)
-            controller.tabBarItem = tabBarItem
-            viewControllers.append(controller)
+            navigationController.tabBarItem = tabBarItem
+            viewControllers.append(navigationController)
         }
         return viewControllers
     }

@@ -8,6 +8,10 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+//    MARK: - Actions
+    @objc func searchButtonTapped(){
+        self.navigationController?.pushViewController(SearchViewController(), animated: true)
+    }
 //    MARK: - Constants
     enum Constants {
         static let spaceBeetweenElements: CGFloat = 8
@@ -18,10 +22,11 @@ class HomeViewController: UIViewController {
     // MARK: - Private properties
     private let model: HomePageModel = .init()
     
+    
     // MARK: - Views
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: - LiveCycle
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +39,11 @@ class HomeViewController: UIViewController {
 // MARK: - Methods
 private extension HomeViewController {
     func configureApperance() {
+        navigationItem.title = "Главная"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+
+        
         collectionView.register(UINib(nibName: "\(HomeCollectionViewCell.self)", bundle: .main), forCellWithReuseIdentifier: "\(HomeCollectionViewCell.self)")
         collectionView.dataSource = self
         collectionView.delegate = self

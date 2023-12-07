@@ -30,7 +30,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     var didFavoriteTapped: (()->Void)?
     
 //    MARK: - Calculated
-    var buttonImage: UIImage? {
+    private var buttonImage: UIImage? {
         isFavorite ? Constants.fillHeartImage : Constants.heartImage
     }
     
