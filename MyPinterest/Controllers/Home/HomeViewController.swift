@@ -34,16 +34,16 @@ class HomeViewController: UIViewController {
         configureModel()
         model.getPosts()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigation()
+    }
 }
 
 // MARK: - Methods
 private extension HomeViewController {
     func configureApperance() {
-        navigationItem.title = "Главная"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = .black
-
-        
         collectionView.register(UINib(nibName: "\(HomeCollectionViewCell.self)", bundle: .main), forCellWithReuseIdentifier: "\(HomeCollectionViewCell.self)")
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -53,6 +53,11 @@ private extension HomeViewController {
         model.didUpdateModel = { [weak self] in
             self?.collectionView.reloadData()
         }
+    }
+    func configureNavigation() {
+        navigationItem.title = "Главная"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
 }
 
@@ -89,6 +94,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         Constants.spaceBeetweenElements
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        vc.model = self.model.items[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

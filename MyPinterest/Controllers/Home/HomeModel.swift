@@ -30,6 +30,6 @@ struct ItemModel {
     var content: String
     
     static func createDefoults()-> ItemModel{
-        .init(image: UIImage(named: "cat"), title: "the cuttest cat", isFavorite: false, creationDate: "27/11/23", content: "The Birman cat breed resembles a long-haired Siamese, but the Birman always has white-socked feet and magnificent blue eyes along with the characteristic dark mask, ears, tail, and legs. These cute and cuddly felines are very sweet and gentle, and they hate to be alone, preferring the company of their humans, other cats, or even cat-friendly dogs.")
+        .init(image: UIImage(named: "cat"), title: "The cuttest cat The cuttest cat The cuttest cat", isFavorite: false, creationDate: "27.11.2023", content: "The Birman cat breed resembles a long-haired Siamese, but the Birman always has white-socked feet and magnificent blue eyes along with the characteristic dark mask, ears, tail, and legs. These cute and cuddly felines are very sweet and gentle, and they hate to be alone, preferring the company of their humans, other cats, or even cat-friendly dogs.")
     }
 }
