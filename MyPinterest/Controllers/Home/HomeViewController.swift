@@ -29,10 +29,22 @@ class HomeViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureApperance()
         configureModel()
         model.getPosts()
+        
+//        let credentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
+        //        AuthService().performLoginRequest(credentials: credentials) { result in
+        //            switch result {
+        //            case .success(let success):
+        //                print(success)
+        //            case .failure(let failure):
+        //                print(failure)
+        //            }
+        PictureService().loadPictures { result in
+            print(result)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
