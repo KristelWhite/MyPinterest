@@ -48,9 +48,17 @@ class HomeCollectionViewCell: UICollectionViewCell {
             titleLabel.text  = title
         }
     }
-    var image: UIImage? {
+//    var image: UIImage? {
+//        didSet {
+//            imageView.image = image
+//        }
+//    }
+    
+    var imageURLInString: String = "" {
         didSet {
-            imageView.image = image
+            if let url = URL(string: imageURLInString) {
+                imageView.loadImage(from: url )
+            }
         }
     }
     var isFavorite: Bool = false {

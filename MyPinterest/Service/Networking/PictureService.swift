@@ -9,9 +9,9 @@ import Foundation
 
 struct PictureService {
     
-    let dataTask = BaseNetworkTask<EmptyModel, PicturesResponseModel>(isNeedInjectToken: true, method: .get, path: "picture/")
+    let dataTask = BaseNetworkTask<EmptyModel, [PictureResponseModel]>(isNeedInjectToken: true, method: .get, path: "picture/")
     
-    func loadPictures (_ onResponceWasRecieved: @escaping (_ result: Result<PicturesResponseModel, Error>) -> Void) {
+    func loadPictures (_ onResponceWasRecieved: @escaping (_ result: Result<[PictureResponseModel], Error>) -> Void) {
         dataTask.perfomRequest(onResponceWasRecieved)
     }
 }

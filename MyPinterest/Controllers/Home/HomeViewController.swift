@@ -84,7 +84,7 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = cell else { return UICollectionViewCell() }
         let item = model.items[indexPath.row]
         cell.title = item.title
-        cell.image = item.image
+        cell.imageURLInString = item.imageURLInString
         cell.isFavorite = item.isFavorite
         cell.didFavoriteTapped = { [weak self] in
             self?.model.items[indexPath.row].isFavorite.toggle()

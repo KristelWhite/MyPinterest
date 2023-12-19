@@ -15,9 +15,16 @@ class DetailImageTableViewCell: UITableViewCell {
     
 //    MARK: - Properties
     
-    var image: UIImage? {
+//    var image: UIImage? {
+//        didSet {
+//            photoImageView.image = image
+//        }
+//    }
+    var imageURLInString : String = "" {
         didSet {
-            photoImageView.image = image
+            if let url = URL(string: imageURLInString) {
+                photoImageView.loadImage(from: url)
+            }
         }
     }
     
