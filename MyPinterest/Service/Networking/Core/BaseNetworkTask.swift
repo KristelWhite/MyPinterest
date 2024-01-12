@@ -8,6 +8,10 @@
 import Foundation
  
 struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable> : NetworkTask {
+    
+    var urlCache : URLCache {
+        URLCache.shared
+    }
 
 //    MARK: - NetworkTask
     
@@ -39,6 +43,12 @@ struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable> : Ne
     {
         do {
             let request = try getRequest(with: input)
+//            проверяем есть ли кеш
+            if let cachedResponse = getCachedResponce(forRequest: request) {
+                let decodedData = try JSONDecoder().decode(AbstractOutput.self, from: cachedResponse.data)
+                onResponseWasReseived(.success(decodedData))
+                return
+            }
             session.dataTask(with: request) { data, responce, error in
                 if let error = error {
                     onResponseWasReseived(.failure(error))
@@ -46,6 +56,8 @@ struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable> : Ne
                     do {
                         let result = try JSONDecoder().decode(AbstractOutput.self, from: data)
                         onResponseWasReseived(.success(result))
+//                        сохраняем запрос в кеш
+                        saveCachedResponse(response: responce, data: data, forRequest: request)
                     } catch {
                         onResponseWasReseived(.failure(error))
                     }
@@ -60,6 +72,21 @@ struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable> : Ne
         
     }
        
+}
+
+//MARK: - Cached logic
+
+private extension BaseNetworkTask {
+    
+    func saveCachedResponse (response: URLResponse?, data: Data?, forRequest request: URLRequest) {
+        guard let response = response, let data = data else { return }
+        let cachedData = CachedURLResponse(response: response, data: data)
+        urlCache.storeCachedResponse(cachedData, for: request)
+    }
+    
+    func getCachedResponce (forRequest request: URLRequest) -> CachedURLResponse? {
+        return urlCache.cachedResponse(for: request)
+    }
 }
 
 extension BaseNetworkTask where AbstractInput == EmptyModel {
@@ -96,7 +123,7 @@ private extension BaseNetworkTask {
             request.httpBody = try getBodyParameters(with: parameters)
         }
         request.httpMethod = method.getMethod()
-//в каком формате мы отправляем или получаем данные
+        //в каком формате мы отправляем или получаем данные
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if isNeedInjectToken {
             request.addValue("Token \(try tokenStorage.getToken())", forHTTPHeaderField: "Authorization")
