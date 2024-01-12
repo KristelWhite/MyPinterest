@@ -47,6 +47,7 @@
 		63818DBB2B2AFBFB0022CE7A /* BaseTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818DBA2B2AFBFB0022CE7A /* BaseTokenStorage.swift */; };
 		63818DBF2B2B0DB60022CE7A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818DBE2B2B0DB60022CE7A /* ImageLoader.swift */; };
 		63818DC12B2B1D310022CE7A /* UIImageView+ImageLoader .swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818DC02B2B1D300022CE7A /* UIImageView+ImageLoader .swift */; };
+		63DA12722B500B1D00996C6F /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA12712B500B1D00996C6F /* KeyChainManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		63818DBA2B2AFBFB0022CE7A /* BaseTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTokenStorage.swift; sourceTree = "<group>"; };
 		63818DBE2B2B0DB60022CE7A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		63818DC02B2B1D300022CE7A /* UIImageView+ImageLoader .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader .swift"; sourceTree = "<group>"; };
+		63DA12712B500B1D00996C6F /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				63818DB62B2AF9940022CE7A /* TokenStorage.swift */,
 				63818DB82B2AFBDB0022CE7A /* StorageContainer.swift */,
 				63818DBA2B2AFBFB0022CE7A /* BaseTokenStorage.swift */,
+				63DA12712B500B1D00996C6F /* KeyChainManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				63818D9C2B21F43E0022CE7A /* DetailTextTableViewCell.swift in Sources */,
 				63818DB42B2AF29D0022CE7A /* PictureService.swift in Sources */,
 				63818D7A2AFA77980022CE7A /* TabBarModel.swift in Sources */,
+				63DA12722B500B1D00996C6F /* KeyChainManager.swift in Sources */,
 				63818DB92B2AFBDC0022CE7A /* StorageContainer.swift in Sources */,
 				63818D652AFA76DD0022CE7A /* SearchViewController.swift in Sources */,
 				63818DB02B2AF10F0022CE7A /* EmptyModel.swift in Sources */,
